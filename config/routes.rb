@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "rooms#index"
-  resources :rooms
+  resources :rooms do
+    resources :messages
+  end
   resources :users
   
   get '/signin', to: 'sessions#new'
